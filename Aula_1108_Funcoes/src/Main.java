@@ -80,13 +80,13 @@ public class Main {
                 System.out.println("Digite um numero que deseja o factoria: ");
                 int numFac = sc.nextInt();
                 System.out.println(factorial(numFac));
-            } else if (option ==10){
-                int [] arrayNum = new int[]{-2, 0, 3, 5, -1};
-                int [] arrayPos = filtrarPositivos(arrayNum);
-
-                for(int i=0; i<arrayPos.length; i++){
-                    System.out.println(arrayPos[i]);
-                }
+//            } else if (option ==10){
+//                int [] arrayNum = new int[]{-2, 0, 3, 5, -1};
+//                int [] arrayPos = filtrarPositivos(arrayNum);
+//
+//                for(int i=0; i<arrayPos.length; i++){
+//                    System.out.println(arrayPos[i]);
+//                }
             } else {
                 System.out.println("Digite novamente a Opcão: ");
             }
@@ -187,17 +187,17 @@ public class Main {
     }
 
     //Extra 1 - Filtrar números positivos em um array
-    public static int[] filtrarPositivos (int[] arrayNum){
-        ArrayList<Integer> numPositivos = new ArrayList<Integer>();
-
-        for (int i=0; i<arrayNum.length; i++){
-            if (arrayNum[i] > 0){
-                numPositivos.add(arrayNum[i]);
-            }
-        }
-        int longitud = numPositivos.size();
-        int[] numPos = numPositivos.toArray(new Integer[numPositivos.size()]);
-        numPos = numPositivos;
-        return numPos;
-    }
+//    public static int[] filtrarPositivos (int[] arrayNum){
+//        ArrayList<Integer> numPositivos = new ArrayList<Integer>();
+//
+//        for (int i=0; i<arrayNum.length; i++){
+//            if (arrayNum[i] > 0){
+//                numPositivos.add(arrayNum[i]);
+//            }
+//        }
+//        int longitud = numPositivos.size();
+//        Integer[] numPos = numPositivos.toArray(new Integer[0]);
+//        //numPos = numPositivos;
+//        return numPos;
+//    }
 }
