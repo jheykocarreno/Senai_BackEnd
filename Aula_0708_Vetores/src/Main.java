@@ -130,7 +130,7 @@ public class Main {
             System.out.print("Valor" + (i+1) + ": ");
             nomes[i] = sc.nextLine();
         }
-        
+
         for(int i = 0; i < nomes.length; i++){
             System.out.println("Nome" + (i+1) +  ": "+ nomes[i]);
         }
