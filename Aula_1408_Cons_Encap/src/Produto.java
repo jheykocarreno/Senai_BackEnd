@@ -1,14 +1,42 @@
+// public class Nome
 public class Produto {
-
+    //1. Atributos
+    // public Tipo nome
     public String nome;
-    public double preco;
-    public String marca;
-    public int estoque;
+    private double preco;
+    private int estoque;
 
-    public Produto(String nome, double preco, String marca, int estoque){
-        this.nome = nome;
+    public double getPreco(){
+        return preco;
+    }
+
+    public int getEstoque(){
+        return estoque;
+    }
+
+    public void setPreco(double preco){
         this.preco = preco;
-        this.marca = marca;
+    }
+
+    public void setEstoque(int estoque){
         this.estoque = estoque;
+    }
+
+    public Produto(String nome, double preco, int estoque){
+        this.nome = nome;
+        this.estoque = estoque;
+        this.preco = preco;
+    }
+
+    public void adicionarEstoque(int qtd) {
+        estoque += qtd;
+    }
+
+    public void realizarVenda(int qtd) {
+        if (estoque < qtd) {
+            System.out.println("Produto sem estoque suficiente");
+        } else {
+            estoque -= qtd;
+        }
     }
 }

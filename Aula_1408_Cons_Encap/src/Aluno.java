@@ -8,7 +8,7 @@ public class Aluno {
         this.nota = nota;
     }
 
-    public void verificarStatus(double nota) {
+    public void verificarStatus() {
         if (nota >= 5) {
             System.out.println("Aprovado");
         } else {
