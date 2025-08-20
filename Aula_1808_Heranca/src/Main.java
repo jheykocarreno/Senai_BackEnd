@@ -19,6 +19,12 @@ public class Main {
         Livro meuLivro = new Livro("A Arte da Guerra", 29.99, "Sun Tzu");
         meuLivro.exibirDetalhes();
 
-
+        Turma turmaB = new Turma("Turma de Java", 5);
+        // Cria e adiciona alguns alunos
+        turmaB.adicionarAluno(new Aluno("João"));
+        turmaB.adicionarAluno(new Aluno("Maria"));
+        turmaB.adicionarAluno(new Aluno("Pedro"));
+        // Lista os alunos cadastrados
+        turmaB.listarAlunos();
     }
 }

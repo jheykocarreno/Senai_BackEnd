@@ -1,13 +1,30 @@
 public class Turma extends Aluno{
 
     String nomeDaTurma;
-    int indice;
-    Aluno[] alunos = new Aluno[indice];
+    int capacidade;
+    int alunoAtual;
+
+    public Aluno[] arrAluno;
 
     public Turma(String nomeDaTurma, int capacidade){
+        super("");
         this.nomeDaTurma = nomeDaTurma;
-        this.indice = capacidade;
+        this.capacidade = capacidade;
+        arrAluno = new Aluno[capacidade];
     }
 
-    public 
+    public void adicionarAluno(Aluno aluno){
+        arrAluno[alunoAtual] = aluno;
+        alunoAtual++;
+    }
+
+    public void listarAlunos(){
+        for (int i = 0; i < arrAluno.length; i++){
+            if(arrAluno[i].getNome() != null){
+                System.out.println("- " + arrAluno[i].getNome());
+            } else {
+                i = arrAluno.length;
+            }
+        }
+    }
 }
