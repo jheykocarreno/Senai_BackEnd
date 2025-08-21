@@ -18,6 +18,11 @@ public class Turma extends Aluno{
         alunoAtual++;
     }
 
+    @Override
+    public String toString() {
+        return "Oi";
+    }
+
     public void listarAlunos(){
         for (int i = 0; i < arrAluno.length; i++){
             if(arrAluno[i].getNome() != null){
