@@ -22,12 +22,4 @@ public class ItemBiblioteca {
         System.out.println("Titulo: " + titulo);
         System.out.println("Ano publicacao: " + anoPublicacao);
     }
-
-    @Override
-    public String toString() {
-        return "ItemBiblioteca{" +
-                "titulo='" + titulo + '\'' +
-                ", anoPublicacao=" + anoPublicacao +
-                '}';
-    }
 }

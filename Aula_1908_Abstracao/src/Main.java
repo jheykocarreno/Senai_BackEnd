@@ -6,6 +6,9 @@ import contaBancaria.OperacoesConta;
 import formas.Circulo;
 import formas.FormulaGeometrica;
 import formas.Quadrado;
+import gestaoDeColaboradores.Funcionario;
+import gestaoDeColaboradores.FuncionarioCLT;
+import gestaoDeColaboradores.FuncionarioFreelancer;
 import lojaOnLine.ProdutoDigital;
 import lojaOnLine.ProdutoFisico;
 import lojaOnLine.Vendavel;
@@ -79,5 +82,13 @@ public class Main {
             total += arrVendavel.get(i).calcularPrecoFinal();
         }
         System.out.println(total);
+
+        //6. Gestão de Colaboradores
+        Funcionario funcClt1 = new FuncionarioCLT("NomeClt1", 1000.00);
+        Funcionario funcFre1 = new FuncionarioFreelancer("NomeFree1", 0,89.00,20);
+
+        funcClt1.exibirDados();
+        funcFre1.exibirDados();
+
     }
 }
