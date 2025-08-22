@@ -3,6 +3,9 @@ import catalogoBiblioteca.Livro;
 import catalogoBiblioteca.Revista;
 import contaBancaria.ContaBancaria;
 import contaBancaria.OperacoesConta;
+import cursos.Curso;
+import cursos.CursoOnline;
+import cursos.CursoPresencial;
 import formas.Circulo;
 import formas.FormulaGeometrica;
 import formas.Quadrado;
@@ -14,6 +17,10 @@ import lojaOnLine.ProdutoFisico;
 import lojaOnLine.Vendavel;
 import produto.Exibivel;
 import produto.Produto;
+import sistemaNotificacoes.Notificacao;
+import sistemaNotificacoes.NotificacaoEmail;
+import sistemaNotificacoes.NotificacaoPush;
+import sistemaNotificacoes.NotificacaoSMS;
 import tarefa.Concluivel;
 import tarefa.Tarefa;
 
@@ -90,5 +97,34 @@ public class Main {
         funcClt1.exibirDados();
         funcFre1.exibirDados();
 
+        //7. Sistema de Notificações
+        ArrayList<Notificacao> notificacaoList = new ArrayList<>();
+
+        notificacaoList.add(new NotificacaoEmail());
+        notificacaoList.add(new NotificacaoSMS());
+        notificacaoList.add(new NotificacaoPush());
+
+        String mensagem = "Mensagem de teste.";
+
+        for(int i = 0; i < notificacaoList.size(); i++){
+            notificacaoList.get(i).enviar(mensagem);
+        }
+        //ou
+        for (Notificacao noti : notificacaoList) {
+            noti.enviar(mensagem);
+        }
+
+        //8. Cursos
+        Curso ol1 = new CursoOnline("OL1", 10, "ol1.com.br");
+        Curso pre1 = new CursoPresencial("Pre1", 20, "Rua pre1 20");
+
+        ArrayList<Curso> cursos = new ArrayList<>();
+
+        cursos.add(ol1);
+        cursos.add(pre1);
+
+        for(Curso cur : cursos){
+            cur.exibirDetalhes();
+        }
     }
 }
