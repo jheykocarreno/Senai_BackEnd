@@ -3,7 +3,7 @@
 */
 
 --DDL - Criar - Create (Schema, Tabela)
-create schema clinica;
+create schema clinica is not exists;
 
 create table clinica.medico(
 	id_medico INT primary key generated always as identity, 
@@ -59,7 +59,7 @@ RENAME TO novopaciente
 
 --Apagar tabela ou schema - DROP
 /*
-drop table clinica.consulta;
+drop table if exists clinica.consulta;
 drop table clinica.clinica;
 drop table clinica.medico;
 drop table clinica.paciente;
