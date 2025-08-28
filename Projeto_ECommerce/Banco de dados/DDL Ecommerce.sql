@@ -29,7 +29,7 @@ CREATE TABLE ecommerce.produto(
 CREATE TABLE ecommerce.item_pedido(
 	id_item INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	id_pedido INT not null references ecommerce.pedido(id_pedido),
-	id_produto INT not null referencies ecommerce.produto(id_produto),
+	id_produto INT not null references ecommerce.produto(id_produto),
 	quantidade INT not null
 );
 
