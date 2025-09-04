@@ -1,0 +1,11 @@
+1-Models - Contem as tabelas de nossa aplicação - Al tabelas do banco.
+2-Repositories - Classes que interagem com o banco de dados diretamente
+3-Services - Classe que agrupa a logica de negocio
+4-Controllers - Porta de entrada de nossa API.
+
+
+CRUD - 4 principais operacões
+    Create  - Criar/Cadastrar
+    Read    - Ler
+    Update  - Atualizar
+    Delete  - Apagar
