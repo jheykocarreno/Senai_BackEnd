@@ -22,4 +22,8 @@ public class ItemDoPedidoService {
     public ItemDoPedido cadastrarPedido(ItemDoPedido itemDoPedido){
         return itemDoPedidoRepository.save(itemDoPedido);
     }
+
+    public ItemDoPedido itemPorId(Integer id){
+        return itemDoPedidoRepository.findById(id).orElse(null);
+    }
 }

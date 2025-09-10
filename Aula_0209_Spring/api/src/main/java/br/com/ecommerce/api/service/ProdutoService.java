@@ -22,4 +22,23 @@ public class ProdutoService {
     public Produto cadastrarProduto(Produto prod){
         return produtoRepository.save(prod);
     }
+
+    public Produto produtoPorId(Integer id){
+        return produtoRepository.findById(id).orElse(null);
+    }
+
+    public Produto atualizarProduto(Integer id, Produto produto){
+        Produto produtoExiste = produtoPorId(id);
+
+        if (produtoExiste == null){
+            return null;
+        }
+
+        produtoExiste.setNomeProduto(produto.getNomeProduto());
+        produtoExiste.setDescricao(produto.getDescricao());
+        produtoExiste.setPreco(produto.getPreco());
+        produtoExiste.setEstoqueDisponivel(produto.getEstoqueDisponivel());
+        produtoExiste.setImagemUrl(produto.getImagemUrl());
+        return produtoRepository.save(produtoExiste);
+    }
 }

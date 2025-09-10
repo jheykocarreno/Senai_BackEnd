@@ -29,4 +29,15 @@ public class PagamentoController {
         pagamentoService.cadastrarPagamento(pagamento);
         return ResponseEntity.status(HttpStatus.CREATED).body(pagamento);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pagamento> buscarPagamento(@PathVariable Integer id){
+        Pagamento pagamento = pagamentoService.pagamentoPorId(id);
+
+        if(pagamento == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(pagamento);
+    }
 }

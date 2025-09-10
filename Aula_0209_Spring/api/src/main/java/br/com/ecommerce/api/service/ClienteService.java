@@ -30,10 +30,25 @@ public class ClienteService {
     public Cliente clientePorId(Integer id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
 
-        if(cliente.isPresent()){
+        if(cliente.isEmpty()){
             return null;
         }
 
         return cliente.get();
+    }
+
+    public Cliente atualizarCliente(Integer id, Cliente cl){
+        Cliente clienteExiste = clientePorId(id);
+
+        if (clienteExiste == null){
+            return null;
+        }
+
+
+        clienteExiste.setNomeCompleto(cl.getNomeCompleto());
+        clienteExiste.setSenha(cl.getSenha());
+        clienteExiste.setTelefone(cl.getTelefone());
+        clienteExiste.setDataCadastro(cl.getDataCadastro());
+        return clienteRepository.save(clienteExiste);
     }
 }

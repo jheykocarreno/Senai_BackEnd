@@ -28,4 +28,15 @@ public class ItemDoPedidoController {
     public ResponseEntity<ItemDoPedido> cadastrarPedido(@RequestBody ItemDoPedido itemDoPedido){
         return ResponseEntity.status(HttpStatus.CREATED).body(itemDoPedidoService.cadastrarPedido(itemDoPedido));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ItemDoPedido> buscarItemDoPedido(@PathVariable Integer id){
+        ItemDoPedido itemDoPedido = itemDoPedidoService.itemPorId(id);
+
+        if(itemDoPedido == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(itemDoPedido);
+    }
+
 }

@@ -2,7 +2,6 @@ package br.com.ecommerce.api.controller;
 
 import br.com.ecommerce.api.model.Cliente;
 import br.com.ecommerce.api.service.ClienteService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,5 +49,15 @@ public class ClienteController {
         }
 
         return ResponseEntity.ok(cliente);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> atualizarClientePorId(@PathVariable Integer id, @RequestBody Cliente cliente){
+        Cliente clienteAtualizado = clienteService.atualizarCliente(id, cliente);
+
+        if(clienteAtualizado == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(clienteAtualizado);
     }
 }

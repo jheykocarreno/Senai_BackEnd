@@ -29,4 +29,24 @@ public class ProdutoController {
         produtoService.cadastrarProduto(produtoNovo);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoNovo);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> buscarProdutoPorId(@PathVariable Integer id){
+        Produto produto = produtoService.produtoPorId(id);
+
+        if(produto == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(produto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> atualizarProdutoPorId(@PathVariable Integer id, @RequestBody Produto produto){
+        Produto produtoAtualizado = produtoService.atualizarProduto(id, produto);
+
+        if(produtoAtualizado == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(produtoAtualizado);
+    }
 }

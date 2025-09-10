@@ -22,4 +22,10 @@ public class PagamentoService {
     public Pagamento cadastrarPagamento(Pagamento paga){
         return pagamentoRepository.save(paga);
     }
+
+    public Pagamento pagamentoPorId(Integer id){
+        return pagamentoRepository.findById(id).orElse(null);
+    }
+
+
 }
