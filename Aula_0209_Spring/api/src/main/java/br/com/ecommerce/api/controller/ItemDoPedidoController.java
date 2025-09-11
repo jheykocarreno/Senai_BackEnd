@@ -5,6 +5,7 @@ import br.com.ecommerce.api.service.ItemDoPedidoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 
@@ -37,6 +38,17 @@ public class ItemDoPedidoController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(itemDoPedido);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ItemDoPedido> atualizarPedido(@PathVariable Integer id, @RequestBody ItemDoPedido itemDoPedido){
+        ItemDoPedido itemAtualizado = itemDoPedidoService.atualizarItem(id, itemDoPedido);
+
+        if (itemAtualizado == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(itemAtualizado);
     }
 
 }

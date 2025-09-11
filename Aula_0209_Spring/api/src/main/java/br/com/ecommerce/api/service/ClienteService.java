@@ -51,4 +51,14 @@ public class ClienteService {
         clienteExiste.setDataCadastro(cl.getDataCadastro());
         return clienteRepository.save(clienteExiste);
     }
+
+    public Cliente deleteCliente(Integer id) {
+        Cliente clienteExiste = clientePorId(id);
+
+        if (clienteExiste == null){
+            return null;
+        }
+        clienteRepository.delete(clienteExiste);
+        return clienteExiste;
+    }
 }

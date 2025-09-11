@@ -27,5 +27,18 @@ public class PagamentoService {
         return pagamentoRepository.findById(id).orElse(null);
     }
 
+    public Pagamento atualizarPagamento(Integer id, Pagamento pagamento){
+        Pagamento pagamentoExiste = pagamentoPorId(id);
 
+        if(pagamentoExiste == null){
+            return null;
+        }
+
+
+        pagamentoExiste.setPedido(pagamento.getPedido());
+        pagamentoExiste.setFormaPagamento(pagamento.getFormaPagamento());
+        pagamentoExiste.setStatus(pagamento.getStatus());
+        pagamentoExiste.setDataPagamento(pagamento.getDataPagamento());
+        return pagamentoRepository.save(pagamentoExiste);
+    }
 }

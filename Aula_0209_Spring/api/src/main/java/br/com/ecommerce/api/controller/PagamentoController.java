@@ -40,4 +40,14 @@ public class PagamentoController {
 
         return ResponseEntity.ok(pagamento);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Pagamento> atualizarPagamento(@PathVariable Integer id, @RequestBody Pagamento pagamento){
+        Pagamento pagamentoAtualizado = pagamentoService.atualizarPagamento(id, pagamento);
+
+        if(pagamentoAtualizado == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(pagamentoAtualizado);
+    }
 }

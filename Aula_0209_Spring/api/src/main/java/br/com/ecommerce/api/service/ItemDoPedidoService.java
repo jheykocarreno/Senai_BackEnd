@@ -26,4 +26,17 @@ public class ItemDoPedidoService {
     public ItemDoPedido itemPorId(Integer id){
         return itemDoPedidoRepository.findById(id).orElse(null);
     }
+
+    public ItemDoPedido atualizarItem(Integer id, ItemDoPedido itemDoPedido){
+        ItemDoPedido itemExiste = itemPorId(id);
+
+        if(itemExiste == null) {
+            return null;
+        }
+
+        itemExiste.setPedido(itemDoPedido.getPedido());
+        itemExiste.setProduto(itemDoPedido.getProduto());
+        itemExiste.setQuantidade(itemDoPedido.getQuantidade());
+        return itemDoPedidoRepository.save(itemExiste);
+    }
 }

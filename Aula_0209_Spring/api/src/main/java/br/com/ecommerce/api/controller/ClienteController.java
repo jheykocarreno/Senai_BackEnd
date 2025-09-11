@@ -60,4 +60,14 @@ public class ClienteController {
         }
         return ResponseEntity.ok(clienteAtualizado);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarClientePorId(@PathVariable Integer id){
+        Cliente clienteDeletado = clienteService.deleteCliente(id);
+
+        if(clienteDeletado == null){
+            return ResponseEntity.badRequest().body("Cliente " + id + " não foi encontrado");
+        }
+        return ResponseEntity.noContent().build();
+    }
 }
