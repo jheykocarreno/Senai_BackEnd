@@ -23,6 +23,7 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
+    //Cadastrar cliente
     public Cliente cadastrarCliente(Cliente cl){
         return clienteRepository.save(cl);
     }
