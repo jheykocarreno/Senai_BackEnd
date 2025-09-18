@@ -28,6 +28,7 @@ public class ClienteService {
         return clienteRepository.save(cl);
     }
 
+    //Buscar Cliente por ID
     public Cliente clientePorId(Integer id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
 
@@ -38,13 +39,13 @@ public class ClienteService {
         return cliente.get();
     }
 
+    //Atualizar Cliente por ID
     public Cliente atualizarCliente(Integer id, Cliente cl){
         Cliente clienteExiste = clientePorId(id);
 
         if (clienteExiste == null){
             return null;
         }
-
 
         clienteExiste.setNomeCompleto(cl.getNomeCompleto());
         clienteExiste.setSenha(cl.getSenha());

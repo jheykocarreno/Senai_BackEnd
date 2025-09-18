@@ -29,9 +29,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> cadastrarCliente(
-            @RequestBody Cliente clienteNovo
-    ){
+    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente clienteNovo){
         //1. Tentar cadastrar o cliente
         clienteService.cadastrarCliente(clienteNovo);
         //Codigo 200 - OK
