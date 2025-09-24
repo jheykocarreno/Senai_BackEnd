@@ -42,4 +42,15 @@ public class EnderecosService {
 
         return enderecoRepository.save(enderecoAtualizado);
     }
+
+    public Enderecos removerEnderecoPorId(Integer id){
+        Enderecos deleteEndereco = buscarEnderecoPorId(id);
+
+        if (deleteEndereco == null){
+            return null;
+        }
+
+        enderecoRepository.delete(deleteEndereco);
+        return deleteEndereco;
+    }
 }

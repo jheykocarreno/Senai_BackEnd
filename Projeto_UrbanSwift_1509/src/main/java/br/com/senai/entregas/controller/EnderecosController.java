@@ -48,4 +48,15 @@ public class EnderecosController {
         }
         return ResponseEntity.ok(enderecoExiste);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarEnderecos(@PathVariable Integer id){
+        Enderecos enderecoExiste = enderecosService.buscarEnderecoPorId(id);
+
+        if(enderecoExiste == null){
+            return ResponseEntity.badRequest().body("Não existe endereco com ID " + id);
+        }
+
+        return ResponseEntity.noContent().build();
+    }
 }

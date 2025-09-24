@@ -17,10 +17,12 @@ public class VeiculosService {
     }
 
     public List<Veiculos> findAll() {
+
         return veiculosRepository.findAll();
     }
 
     public Veiculos cadastrarVeiculos(Veiculos veiculos){
+
         return veiculosRepository.save(veiculos);
     }
 
