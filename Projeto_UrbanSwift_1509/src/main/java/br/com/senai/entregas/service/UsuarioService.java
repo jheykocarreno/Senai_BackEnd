@@ -2,6 +2,7 @@ package br.com.senai.entregas.service;
 
 import br.com.senai.entregas.model.Usuario;
 import br.com.senai.entregas.repositary.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +13,11 @@ public class UsuarioService {
 
     //Injeção
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder encoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder encoder) {
         this.usuarioRepository = usuarioRepository;
+        this.encoder = encoder;
     }
 
     //Listar todo
@@ -24,6 +27,9 @@ public class UsuarioService {
 
     //Cadastrar usuario
     public Usuario cadastrarUsuario(Usuario usuario){
+        String senhaCriptografada = encoder.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
+
         return usuarioRepository.save(usuario);
     }
 
